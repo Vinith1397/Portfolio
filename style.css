@@ -152,6 +152,14 @@ nav .fas {
     }
 }
 
+#sidemenu {
+    right: -200px;
+}
+
+#sidemenu.open {
+    right: 0;
+}
+
 /*--- --------about----------- */
 
 .p12 {
