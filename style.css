@@ -60,16 +60,25 @@ nav {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background to the navigation bar */
 }
 
 .logo {
     width: 140px;
 }
 
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
 nav ul li {
-    display: inline-block;
     list-style: none;
-    margin: 10px 20px;
+    margin: 0 20px;
 }
 
 nav ul li a {
@@ -92,6 +101,51 @@ nav ul li a::after {
 
 nav ul li a:hover::after {
     width: 100%;
+}
+
+nav .fas {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    nav .fas {
+        display: block;
+        font-size: 25px;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #ff004f;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    nav ul li {
+        margin: 25px 0;
+    }
+
+    nav ul .fas {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+
+    .header-text {
+        margin-top: 20%;
+        font-size: 16px;
+    }
+
+    .header-text h1 {
+        font-size: 30px;
+    }
 }
 
 /*--- --------about----------- */
@@ -400,17 +454,13 @@ form btn2 {
 }
 
 /*---------------css for small screen------- */
-nav .fas {
-    display: none;
-}
-
 @media only screen and (max-width: 600px) {
     #header {
         background-image: url('images/back3.png'); /* Optional different background for smaller screens */
     }
 
     .header-text {
-        margin-top: 10%;
+        margin-top: 20%;
         font-size: 16px;
     }
 
@@ -418,68 +468,11 @@ nav .fas {
         font-size: 30px;
     }
 
-    nav .fas {
-        display: block;
-        font-size: 25px;
-    }
-
     nav ul {
-        background: #ff004f;
-        position: fixed;
-        top: 0;
         right: -200px;
-        width: 200px;
-        height: 100vh;
-        padding-top: 50px;
-        z-index: 2;
     }
 
-    nav ul li {
-        display: block;
-        margin: 25px;
-    }
-
-    nav ul .fas {
-        position: absolute;
-        top: 25px;
-        left: 25px;
-        cursor: pointer;
-    }
-
-    .subtitle {
-        font-size: 40px;
-    }
-
-    .about-col-1,
-    .about-col-2 {
-        flex-basis: 100%;
-    }
-
-    .about-col-1 {
-        margin-bottom: 30px;
-    }
-
-    .about-col-2 {
-        font-size: 14px;
-    }
-
-    .tablinks {
-        font-size: 16px;
-        margin-right: 18px;
-    }
-
-    .contact-left,
-    .contact-right {
-        flex-basis: 100%;
-    }
-
-    .copyright {
-        font-size: 10px;
-    }
-
-    #msg {
-        color: green;
-        margin-top: -40px;
-        display: block;
+    nav ul.open {
+        right: 0;
     }
 }
